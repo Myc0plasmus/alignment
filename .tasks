@@ -1,0 +1,23 @@
+# vim: set fenc=utf-8 ft=taskini:
+# see: https://github.com/skywind3000/asynctasks.vim/wiki/Task-Config
+
+# define a new task named "file-build"
+[run-tests]
+
+# shell command, use quotation for filenames containing spaces
+# check ":AsyncTaskMacro" to see available macros
+command=python -m unittest tests/alignerTest.py
+
+# working directory, can change to $(VIM_ROOT) for project root
+cwd=$(VIM_ROOT)
+
+# output mode, can be one of quickfix and terminal
+# - quickfix: output to quickfix window
+# - terminal: run the command in the internal terminal
+output=terminal
+pos=my_toggleterm
+
+# save file before execute
+save=1
+
+
