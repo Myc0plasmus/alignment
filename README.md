@@ -24,11 +24,13 @@ python main.py -f <path to file>
 
 The program will output the alignemt along with its score
 
-This is output from example test.fasta
+This is output from example test.fasta:
+```
 A T G _
 | . |  
 A C G T
 alignment score: -1
+```
 
 The two sequences are aligned, "_" in the sequence signifies a gap, between two sequences there is an additional line, empty space in it signifies a gap, a dot "." signifies a mismatch and "|" signifies a match
 
