@@ -16,7 +16,7 @@ pip3 install biopython
 
 The program should be run via command:
 
-python main.py -f <path to file>
+python main.py -f \<path to file>
 
 * script should be executed from project root directory
 * file should be in fasta format and contain exactly two sequences to be aligned
