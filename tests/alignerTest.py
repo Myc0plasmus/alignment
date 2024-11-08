@@ -1,5 +1,6 @@
 import unittest
 from src.aligner import globalAlignment
+from Bio.Align import PairwiseAligner
 
 class AlignerTest(unittest.TestCase):
     @classmethod
@@ -46,19 +47,24 @@ class AlignerTest(unittest.TestCase):
         self.globalAligner.clearMatrices
         print("OK")
 
-    def test_printPath(self):
+    def test_getPathScore(self):
         print("Running test for findPath")
         self.globalAligner.populateMatrices()
-        print(self.globalAligner.seq1)
-        print(self.globalAligner.seq2)
-        for i in self.globalAligner.scoreMatrix:
-            print(i)
-        for i in self.globalAligner.directionMatrix:
-            print(i)
-        print()
+        # print(self.globalAligner.seq1)
+        # print(self.globalAligner.seq2)
+        # for i in self.globalAligner.scoreMatrix:
+        #     print(i)
+        # for i in self.globalAligner.directionMatrix:
+        #     print(i)
+        # print()
         self.globalAligner.findPath()
-        print(self.globalAligner.path)
-        self.globalAligner.printPath()
+        aligner = PairwiseAligner()
+        aligner.mode = 'global'
+        aligner.mismatch_score = -1 
+        aligner.match_score = 1
+        aligner.open_gap_score = -2
+        aligner.extend_gap_score = -2
+        assert float(self.globalAligner.getPathScore()) == aligner.align(self.globalAligner.seq1, self.globalAligner.seq2).score
 
         print("OK")
     

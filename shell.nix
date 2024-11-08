@@ -8,10 +8,14 @@ let
     ];
 
     profile = ''
+      set -e
+      echo 1
+      echo 2
       eval "$(micromamba shell hook --shell=posix)"
       export MAMBA_ROOT_PREFIX=${builtins.getEnv "PWD"}/.mamba
-	 	  
-      micromamba create -q -n structural-bio-env
+      echo 3
+      micromamba create -n structural-bio-env
+      echo $MAMBA_ROOT_PREFIX
       micromamba activate structural-bio-env
 	    micromamba install --yes -f env.yml -c conda-forge
 
