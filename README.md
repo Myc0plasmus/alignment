@@ -8,7 +8,9 @@ This script performs global alignment of two sequences based using needleman-wun
 
 Script uses biopython to load fasta files, therefore biopython needs to be installed:
 
-```pip3 install biopython```
+```
+pip3 install biopython
+```
 
 ## Usage
 
